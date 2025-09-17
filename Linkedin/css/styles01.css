@@ -1,0 +1,78 @@
+:root{
+    --bg: #fdfdfd; /* Color de fondo general */ 
+    --card: #ffffff; /* Fondo de las tarjetas */ 
+    --muted: #333333; /* Texto gris para secundario */ 
+    --accent: #B22222; /* Rojo institucional Unipamplona */ 
+    --accent-dark: #8B1A1A; /* Variante más oscura para hover */ 
+    --radius: 12px; /* Radio de bordes */ 
+    --max-width: 1100px; /* Ancho máximo del contenido */ 
+    --shadow: 0 6px 24px rgba(0,0,0,0.08); /* Sombra de tarjetas */ 
+    --font-title: "Merriweather", serif; /* Fuente títulos */ 
+    --font-body: "Roboto", sans-serif; /* Fuente texto */ 
+}
+/* Reset */ 
+{box-sizing:border-box;margin:0;padding:0} / Eliminar márgenes y padding por defecto */ 
+html,body{height:100%} /* Ocupa el alto completo */ 
+body{ 
+    font-family: var(--font-body); /* Fuente general */ 
+    background: var(--bg); /* Fondo claro */ 
+    color:#111827; /* Texto principal */ 
+    line-height:1.6;/* Altura de línea */
+    } 
+    h1,h2,h3{ 
+        font-family: var(--font-title); /* Fuente de títulos */ 
+        color: var(--accent); /* Rojo institucional en encabezados */ 
+    }
+    .container{ 
+        max-width: var(--max-width); /* Limita ancho */ 
+        margin:40px auto; /* Centrado horizontal */ 
+        padding:24px; /* Espaciado interno */ 
+    } 
+    .profile-card{ 
+        display:grid; /* Uso de grid */ 
+        grid-template-columns: 320px 1fr; /* Col izquierda fija y derecha flexible */ 
+        gap:24px; /* Separación entre columnas */ 
+        background: var(--card); /* Fondo blanco */ 
+        border-radius: var(--radius); /* Bordes redondeados */ 
+        box-shadow: var(--shadow); /* Sombra */ 
+        padding: 22px; /* Relleno interno */ 
+    }
+    .profile-aside{ 
+        border-right: 1px dashed rgba(0,0,0,0.1); /* Línea divisoria */ 
+        padding-right: 20px; /* Espacio a la derecha */
+        display: flex;flex-direction: column;gap:18px;align-items: center;
+    }
+    .avatar{ 
+        width: 160px; /* Ancho fijo */ 
+        height: 160px; /* Alto fijo */ 
+        border-radius: 50%; /* Circular */ 
+        object-fit: cover; /* Cubre el contenedor */ 
+        box-shadow: var(--shadow); /* Sombra */ 
+        border: 4px solid rgba(178,34,34,0.2); /* Borde sutil */
+        overflow: hidden; /* Recorta contenido extra */
+    }
+    .avatar img{width:100%;height:100%;object-fit:cover} /* Imagen dentro del avatar */
+    .contact-info h1{font-size:1.35rem;margin:6px 0;} /* Nombre */
+    .contact-info .headline{font-weight:600;color:var(--muted)} /* Titular */
+    .meta{list-style:none;font-size:0.95rem;color: var(--muted)} /* Lista de datos */
+    .meta li{margin:6px 0;display:flex;gap:8px} /* Elementos de la lista */
+    .meta .label{font-weight:600;color: #111827} 
+/* Habilidades */ 
+.skills h2{font-size:1rem;margin-bottom:8px} 
+.skills ul{list-style:none;display:flex;flex-direction:column;gap:8px} 
+.skills li{ 
+background:linear-gradient(90deg, rgba(178,34,34,0.06), transparent); 
+/* Fondo suave */ 
+padding:8px;border-radius:8px;position:relative; 
+} 
+.skills li::before{ 
+content:"";position:absolute;left:0;top:0;bottom:0; 
+background: linear-gradient(90deg,#B22222,#d64545); /* Barra roja */ 
+opacity:0.2; 
+} 
+.skills li[data-level="90"]::before{width:90%} /* Longitud según nivel */ 
+.skills li[data-level="85"]::before{width:85%} 
+.skills li[data-level="80"]::before{width:80%} 
+.skills li[data-level="75"]::before{width:75%} 
+.skills li[data-level="70"]::before{width:70%} 
+.skills li span{position:relative;z-index:1} /* Texto encima de barra */ 
